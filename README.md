@@ -4,12 +4,13 @@
 [![React](https://img.shields.io/badge/React-19-blue?logo=react)](https://react.dev/)
 [![Supabase](https://img.shields.io/badge/Supabase-Serverless%20PostgreSQL-3ECF8E?logo=supabase)](https://supabase.com/)
 [![Tailwind CSS](https://img.shields.io/badge/TailwindCSS-v4-38B2AC?logo=tailwind-css)](https://tailwindcss.com/)
+[![Python](https://img.shields.io/badge/Python-3.x-3776AB?logo=python)](https://www.python.org/)
 [![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?logo=docker)](https://www.docker.com/)
 [![Vercel](https://img.shields.io/badge/Deploy-Vercel-black?logo=vercel)](https://vercel.com/)
 
 Nintendo Retro Vault es una aplicacion web orientada a la consulta y preservacion digital de videojuegos clasicos de Nintendo. La biblioteca contiene un catalogo curado de 40 titulos historicos para cuatro consolas: Game Boy Advance (GBA), Nintendo DS (NDS), Nintendo 64 (N64) y Nintendo Wii.
 
-Desarrollada con Next.js 16 (App Router), React 19 Server Components, Tailwind CSS v4 y persistencia serverless en Supabase con politicas de acceso seguro (Row Level Security).
+Desarrollada con Next.js 16 (App Router), React 19 Server Components, Tailwind CSS v4, persistencia serverless en Supabase con politicas de acceso seguro (Row Level Security), y un pipeline de extraccion automatizada en Python para la ingesta de datos oficiales desde Wikipedia.
 
 ---
 
@@ -35,6 +36,10 @@ La aplicacion organiza su contenido mediante rutas dinamicas con slugs legibles:
 * **Animacion Secuencial en Cadena:** Giro 3D escalonado cada 2 segundos entre las fichas activas, concluyendo con un giro sincronizado antes de reiniciar el ciclo.
 * **Optimizacion de Escala (Zoom 115%):** Dimensionado adaptado para lectura confortable en computadoras portatiles.
 * **Diseno Retro Sobrio:** Estetica inspirada en consolas clasicas sin uso de emojis, con tipografias de estilo arcade.
+
+### 4. Pipeline de Datos con Python
+* **Extraccion Oficial:** Recopilacion automatizada de especificaciones tecnicas, sinopsis y portadas desde la API REST de Wikipedia, garantizando fidelidad historica y licencias abiertas sin datos ficticios.
+* **Procesamiento y Estandarizacion:** Scripts en Python encargados del saneado de texto, traduccion al espanol y generacion de slugs limpios para cada registro.
 
 ---
 
@@ -138,6 +143,7 @@ npm run build
 ├── docker-compose.yml           # Alias Docker Compose
 ├── supabase_setup.sql           # Script de estructura y carga de datos para Supabase
 ├── .env.example                 # Plantilla de variables de entorno
+├── scripts/                     # Automatizacion en Python para extraccion y saneado de datos
 └── nextjs/
     ├── app/
     │   ├── layout.tsx           # Layout raiz con fuentes y navegacion
@@ -164,4 +170,4 @@ npm run build
 
 ## Licencia y Aviso Legal
 
-Este proyecto ha sido desarrollado con fines de preservacion cultural e investigacion de desarrollo web. La informacion y recursos graficos han sido obtenidos de fuentes abiertas bajo licencias Creative Commons (CC-BY-SA). Todos los nombres comerciales, marcas registradas y derechos de personajes pertenecen a Nintendo Co., Ltd. y a sus correspondientes licenciatarios.
+Este proyecto ha sido desarrollado con fines de preservacion cultural e investigacion de desarrollo web. La informacion y recursos graficos han sido obtenidos mediante scripts de automatizacion en Python consumiendo la API REST de Wikipedia bajo licencias Creative Commons (CC-BY-SA). Todos los nombres comerciales, marcas registradas y derechos de personajes pertenecen a Nintendo Co., Ltd. y a sus correspondientes licenciatarios.
